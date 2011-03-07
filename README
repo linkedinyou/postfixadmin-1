@@ -1,0 +1,9 @@
+PostfixAdmin is a web management written in python.
+
+You can create, remove and modify:
+
+* Aliases.
+* Domains.
+* Users.
+
+Django is needed to use PostfixAdmin (http://www.djangoproject.com/)

@@ -1,0 +1,62 @@
+Installation
+============
+
+Requirements
+------------
+
+- Python version 2.6+
+- Django version 1.2+
+- MySQL 5.0+
+- mod-python 3.3+
+
+How to install
+--------------
+
+I'm using Debian Linux, so, to install packages use the apt-get command:
+
+apt-get install mysql-server mysql-client
+apt-get install python-django
+apt-get install python-mysqldb
+apt-get install libapache2-mod_python
+
+- Download the latest PostfixAdmin version:
+
+git clone git@github.com:but3k4/postfixadmin.git
+
+Then, enter the postfixadmin directory, fix the settings.py file (you
+can use settings-sample.py as a model). Specify database relative
+informations.
+
+Create a database with the name you specified in settings.py.
+
+- Initialize the database by running the following command:
+
+python manage.py syncdb
+
+It will let you create the default super administrator.
+
+- Configure the webserver
+
+In my setup I used apache + mod_python, so, create a new virtualhost in your
+Apache configuration and follow the example:
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	<Location "/">
+		SetHandler python-program
+		PythonPath '[ "<path to directory that contains postfixadmin dir>" ] + sys.path'
+		PythonHandler django.core.handlers.modpython
+		SetEnv DJANGO_SETTINGS_MODULE postfixadmin.settings
+		PythonDebug On
+	</Location>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+Note: This is one possible configuration.
