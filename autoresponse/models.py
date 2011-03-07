@@ -9,3 +9,5 @@ class Response(models.Model):
 
     def __unicode__(self):
         return self.name
+
+admin.site.register(Response)
