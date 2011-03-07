@@ -69,5 +69,6 @@ INSTALLED_APPS = (
     # Postfixadmin extensions
     'postfixadmin.aliases',
     'postfixadmin.domains',
-    'postfixadmin.users'
+    'postfixadmin.users',
+    'postfixadmin.autoresponse'
 )
