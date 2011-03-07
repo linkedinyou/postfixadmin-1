@@ -7,3 +7,4 @@ You can create, remove and modify:
 * Users.
 
 Django is needed to use PostfixAdmin (http://www.djangoproject.com/)
+Piston is needed to use PostfixAdmin Rest Api (https://bitbucket.org/jespern/django-piston/wiki/Home)
